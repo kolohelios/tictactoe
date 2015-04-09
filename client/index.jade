@@ -7,32 +7,34 @@ html
     link(rel='stylesheet', href=isProd ? '/index.min.css' : '/index.css')
     link(rel='shortcut icon', href='/favicon.ico')
   body
-    h1 Tic Tac Toe
     #container
+      h1 Tic Tac Toe
       #controls
         button#reset Reset
         #chooser
           label P1
-          input#p1-choose(type='color', value='#ff33cc')
+          input#p1-choose(type='color', value='#ffa732')
           label P2
-          input#p2-choose(type='color', value='#33ccff')
+          input#p2-choose(type='color', value='#21515d')
           button#start Start Game
         #players
-          #p1.player
+          #p1.player 
+            span P1
           #p2.player
-        p#winordraw
+            span P2
       table
         tr
+          td#topleft
           td
-          td
-          td
+          td#topright
         tr
           td
           td
           td
         tr
+          td#bottomleft
           td
-          td
-          td
+          td#bottomright
+      p#winordraw
     script(src='/vendor/jquery/dist/jquery.min.js')
     script(src=isProd ? '/index.min.js' : '/index.js')

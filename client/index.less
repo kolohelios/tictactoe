@@ -1,27 +1,76 @@
+body {
+  text-align: center;
+  font-family: 'Helvetica Neue';
+  font-weight: 100;
+  background-image: url('/assets/turtles.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 #container {
-  margin: 0 auto;
+  vertical-align: middle;
+  background-color: rgba(202, 203, 203, 0.2);
+  margin: -30px auto;
+  min-height: 725px;
+  height: 50%;
+}
+h1 {
+  font-family: serif;
+  position: relative;
+  top: 25px;
 }
 table{
-  border: 1px red solid;
+  background-color: rgba(202, 203, 203, 0.4);
+  border-radius: 30px;
+  margin: 0 auto;
+  border: 10px rgba(184, 205, 66, 0.86) solid;
+  width: 80%;
+  height: 500px;
+  margin-bottom: 25px;
 }
 td{
-  width: 100px;
-  height: 100px;
-  border: 1px blue dotted;
+  border: 1px black dotted;
+  background-color: rgba(202, 203, 203, 0.75);
+  width: 30%;
+  height: 30%;
+  opacity: 0.5;
+}
+button{
+  background-color: rgba(185, 198, 108, 0.89);
+}
+#topleft {
+  border: 1px black dotted;
+  border-top-left-radius: 30px;
+}
+#topright {
+  border: 1px black dotted;
+  border-top-right-radius: 30px;
+}
+#bottomleft{
+  border: 1px black dotted;
+  border-bottom-left-radius: 30px;
+}
+#bottomright{
+  border: 1px black dotted;
+  border-bottom-right-radius: 30px;
 }
 .player{
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
     border: 1px solid black;
     display: inline-block;
+    vertical-align: middle;
 }
 #chooser, #players{
   display: none;
+  margin: 25px auto;
 }
-
 .active{
   border: 3px solid black;
 }
 #winordraw {
   display: none;
+}
+#controls, #players {
+  margin: 25px auto;
 }

@@ -14,7 +14,7 @@ function reset(){
   $('#chooser').show();
   $('#players').hide();
   $('td').css('background-color', 'white');
-  $('body').css('background-color', 'white');
+  $('#container').css('background-color', 'inherit');
   $('#winordraw').hide();
 }
 
@@ -32,7 +32,7 @@ function start(){
 }
 
 function selecting(){
-  if(allowSelections) {
+  if((allowSelections) && ($(this).css('background-color') === 'rgb(255, 255, 255)')) {
     var color = $('.active').css('background-color');
     $(this).css('background-color', color);
     $('.player').toggleClass('active');
@@ -96,16 +96,16 @@ function gameEnd(winner) {
   $('#winordraw').show();
   switch (winner) {
     case 'dr':
-      $('body').css('background-color', 'blue');
+      $('#container').css('background-color', 'blue');
       $('#winordraw').text('It was a draw.');
       break;
     case 'p1':
       $('#winordraw').text('Player 1 won!')
-      $('body').css('background-color', p1);
+      $('#container').css('background-color', p1);
       break;
     case 'p2':
       $('#winordraw').text('Player 2 won!')
-      $('body').css('background-color', p2);
+      $('#container').css('background-color', p2);
       break;
   }
   allowSelections = false;
