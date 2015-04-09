@@ -8,29 +8,30 @@ html
     link(rel='shortcut icon', href='/favicon.ico')
   body
     h1 Tic Tac Toe
-    #controls
-      button#reset Reset
-      #chooser
-        label P1
-        input#p1-choose(type='color', value='#ff33cc')
-        label P2
-        input#p2-choose(type='color', value='#33ccff')
-        button#start Start Game
-      #players
-        #p1.player
-        #p2.player
-    table
-      tr
-        td
-        td
-        td
-      tr
-        td
-        td
-        td
-      tr
-        td
-        td
-        td
+    #container
+      #controls
+        button#reset Reset
+        #chooser
+          label P1
+          input#p1-choose(type='color', value='#ff33cc')
+          label P2
+          input#p2-choose(type='color', value='#33ccff')
+          button#start Start Game
+        #players
+          #p1.player
+          #p2.player
+      table
+        tr
+          td
+          td
+          td
+        tr
+          td
+          td
+          td
+        tr
+          td
+          td
+          td
     script(src='/vendor/jquery/dist/jquery.min.js')
     script(src=isProd ? '/index.min.js' : '/index.js')
