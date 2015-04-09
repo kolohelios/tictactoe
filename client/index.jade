@@ -12,9 +12,10 @@ html
       button#reset Reset
       #chooser
         label P1
-        input(type='color', value='#ff33cc')
+        input#p1-choose(type='color', value='#ff33cc')
         label P2
-        input(type='color', value='#33ccff')
+        input#p2-choose(type='color', value='#33ccff')
+        button#start Start Game
       #players
         #p1.player
         #p2.player
@@ -31,5 +32,5 @@ html
         td
         td
         td
-    script(src='/vendor/jquery/dist/lodash.min.js')
+    script(src='/vendor/jquery/dist/jquery.min.js')
     script(src=isProd ? '/index.min.js' : '/index.js')
