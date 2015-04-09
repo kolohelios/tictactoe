@@ -1,5 +1,7 @@
 'use strict';
 
+var allowSelections = true;
+
 $(document).ready(init);
 
 function init(){
@@ -13,9 +15,11 @@ function reset(){
   $('#players').hide();
   $('td').css('background-color', 'white');
   $('body').css('background-color', 'white');
+  $('#winordraw').hide();
 }
 
 function start(){
+  allowSelections = true;
   $('#players').show();
   var p1 = $('#p1-choose').val();
   var p2 = $('#p2-choose').val();
@@ -28,13 +32,15 @@ function start(){
 }
 
 function selecting(){
-  var color = $('.active').css('background-color');
-  $(this).css('background-color', color);
-  $('.player').toggleClass('active');
-  gameCondition();
+  if(allowSelections) {
+    var color = $('.active').css('background-color');
+    $(this).css('background-color', color);
+    $('.player').toggleClass('active');
+    gameEndConditionCheck();
+  }
 }
 
-function gameCondition(){
+function gameEndConditionCheck(){
   var p1 = $('#p1').css('background-color');
   var p2 = $('#p2').css('background-color');
   var boardArray = [];
@@ -87,18 +93,20 @@ function gameCondition(){
 function gameEnd(winner) {
   var p1 = $('#p1').css('background-color');
   var p2 = $('#p2').css('background-color');
+  $('#winordraw').show();
   switch (winner) {
     case 'dr':
       $('body').css('background-color', 'blue');
-      $('body').append('<p>It was a draw.</p>');
+      $('#winordraw').text('It was a draw.');
       break;
     case 'p1':
-      $('body').append('<p>Player 1 won!</p>')
+      $('#winordraw').text('Player 1 won!')
       $('body').css('background-color', p1);
       break;
     case 'p2':
-      $('body').append('<p>Player 2 won!</p>')
+      $('#winordraw').text('Player 2 won!')
       $('body').css('background-color', p2);
       break;
   }
+  allowSelections = false;
 }
