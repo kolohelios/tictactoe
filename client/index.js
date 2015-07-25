@@ -1,7 +1,7 @@
 'use strict';
 
 (function(){
-  var allowSelections = true;
+  var allowSelections = false;
 
   $(document).ready(init);
 
@@ -42,7 +42,7 @@
     }
   }
 
-  function gameEndConditionCheck(){
+  function getArrayOfSquares(){
     var p1 = $('#p1').css('background-color');
     var p2 = $('#p2').css('background-color');
     var boardArray = [];
@@ -56,6 +56,15 @@
         boardArray.push('');
       }
     }
+    console.log(boardArray);
+    return boardArray;
+  }
+
+  function gameEndConditionCheck(){
+    var boardArray = getArrayOfSquares();
+    if(boardArray.indexOf('') === -1){
+        gameEnd('dr');
+    }
     var p1Array = [], p2Array = [];
     boardArray.forEach(function(value, index){
       if(value === 'p1'){
@@ -67,13 +76,10 @@
     var wins = [[0,1,2],[0,4,8],[0,3,6],[1,4,7],[2,5,8],[2,4,6],[3,4,5],[6,7,8]];
     var p1matches = 0, p2matches = 0;
     // if there are no blanks left and there isn't a win condition this must be a draw
-    if(boardArray.indexOf('') === -1){
-        gameEnd('dr');
-    }
     wins.forEach(function(array){
       p1matches = 0;
       p2matches = 0;
-      for(i = 0; i < 3; i++) {
+      for(var i = 0; i < 3; i++) {
         if(p1Array.indexOf(array[i]) > -1){
           p1matches++;
         }else if(p2Array.indexOf(array[i]) > -1){
@@ -93,7 +99,7 @@
     var p1 = $('#p1').css('background-color');
     var p2 = $('#p2').css('background-color');
     $('#winordraw').show();
-    switch (winner){
+    switch(winner){
       case 'dr':
         $('#container').css('background-color', 'blue');
         $('#winordraw').text('It was a draw.');
@@ -106,6 +112,7 @@
         $('#winordraw').text('Player 2 won!')
         $('#container').css('background-color', p2);
     }
+    $('#reset').show();
     allowSelections = false;
   }
 })($);
